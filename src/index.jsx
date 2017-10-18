@@ -2,7 +2,7 @@ import React from "react"
 import ReactDOM from "react-dom"
 
 import { MainInterface } from "./components/main-interface"
-import "./index.css"
+import "./index.sass"
 
 
 ReactDOM.render(

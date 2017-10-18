@@ -1,0 +1,32 @@
+.background-items
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    height: 100%
+    width: 100%
+    display: block
+
+.stars
+    @extend  .background-items
+    background: black url(./stars.png) repeat top center
+    z-index: -300
+
+.alpha
+    @extend .background-items
+    background: transparent url(./alpha.png) repeat top center
+    z-index: -200
+    animation: stargazing 500s linear infinite
+
+.nebula
+    @extend  .background-items
+    opacity: 0.3
+    background: transparent url(./nebula.png) repeat top center
+    z-index: -100
+
+@keyframes stargazing
+    from
+        background-position: 0 0
+    to
+        background-position: -10000px 5000px

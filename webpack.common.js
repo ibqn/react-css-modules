@@ -13,38 +13,54 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
-        use: 'babel-loader',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                modules: true,
-                localIdentName: '[name]__[local]__[hash:base64:5]',
-                camelCase: true,
-              }
-            }
-          ]
-        })
-      },
-      {
-        test: /\.(svg|png|jpg|gif)$/,
-        use: [
+        oneOf: [
           {
-            loader: 'file-loader',
+            test: /\.jsx?$/,
+            use: 'babel-loader',
+            exclude: /node_modules/
+          },
+          {
+            test: /\.(bmp|gif|jpe?g|png)$/,
+            loader: 'url-loader',
             options: {
+              limit: 10000,
               name: '[name].[hash:base64:8].[ext]',
-              publicPath: '/dist/',
             },
-          }
+          },
+          {
+            test: /\.(css|sass)$/,
+            loader: ExtractTextPlugin.extract({
+              fallback: 'style-loader',
+              use: [
+                {
+                  loader: 'css-loader',
+                  options: {
+                    modules: true,
+                    localIdentName: '[name]__[local]__[hash:base64:5]',
+                    camelCase: true,
+                  }
+                },
+                {
+                  loader: 'sass-loader'
+                }
+              ]
+            })
+          },
+          {
+            test: /\.(svg|png|jpg|gif)$/,
+            exclude: /\.(jsx?|html|json)$/,
+            use: [
+              {
+                loader: 'file-loader',
+                options: {
+                  name: '[name].[hash:base64:8].[ext]',
+                  publicPath: '/dist/',
+                },
+              }
+            ]
+          },
         ]
-      },
+      }
     ]
   },
   resolve: {

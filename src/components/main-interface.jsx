@@ -5,7 +5,7 @@ import { Title } from "./title/title"
 import { Background } from "./background/background"
 
 import logo from "./logo.svg"
-import styles from "./main-interface.css"
+import styles from "./main-interface.sass"
 
 
 export class MainInterface extends Component {

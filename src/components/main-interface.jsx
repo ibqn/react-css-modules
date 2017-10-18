@@ -1,10 +1,14 @@
-import React from "react"
+import React, { Component } from "react"
 import _ from "lodash"
-import logo from './logo.svg';
-import styles from './main-interface.css';
+
+import { Title } from "./title/title"
+import { Background } from "./background/background"
+
+import logo from "./logo.svg"
+import styles from "./main-interface.css"
 
 
-export class MainInterface extends React.Component {
+export class MainInterface extends Component {
     constructor(props) {
         super(props)
     }
@@ -22,6 +26,8 @@ export class MainInterface extends React.Component {
                 <p className={styles.appIntro}>
                     To get started, edit <code>src/App.js</code> and save to reload.
                 </p>
+                <Title/>
+                <Background/>
             </div>
         )
     }

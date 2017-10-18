@@ -39,8 +39,8 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[hash:8].[ext]',
-              publicPath: 'dist/',
+              name: '[name].[hash:base64:8].[ext]',
+              publicPath: '/dist/',
             },
           }
         ]

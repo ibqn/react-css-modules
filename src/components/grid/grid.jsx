@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 
+import styles from './grid.sass'
+import { GridItem } from "./grid-item"
 
 export class Grid extends Component {
     constructor(props) {
@@ -7,10 +9,15 @@ export class Grid extends Component {
     }
 
     render() {
+        const factItems = this.props.facts.map(item => {
+            return (
+                <GridItem key={item.id} item={item} />
+            )
+        })
         return (
-            <div>
-                Grid
-            </div>
+            <section className={styles.grid}>
+                {factItems}
+            </section>
         )
     }
 }

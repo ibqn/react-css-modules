@@ -3,6 +3,7 @@ import _ from "lodash"
 
 import { Title } from "./title/title"
 import { Background } from "./background/background"
+import { Grid } from "./grid/grid"
 
 import logo from "./logo.svg"
 import styles from "./main-interface.sass"
@@ -11,9 +12,22 @@ import styles from "./main-interface.sass"
 export class MainInterface extends Component {
     constructor(props) {
         super(props)
+
+        this.state = { nasaFacts: [] }
     }
 
     componentDidMount() {
+        fetch('./nasa-facts.json', { method: 'get' })
+            .then(response => {
+                if (response.ok) {
+                    return response.json()
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .then(json => {
+                this.setState({ nasaFacts: json })
+            })
+            .catch(error => console.error(error))
     }
 
     render() {
@@ -28,6 +42,7 @@ export class MainInterface extends Component {
                 </p>
                 <Title/>
                 <Background/>
+                <Grid facts={this.state.nasaFacts}/>
             </div>
         )
     }

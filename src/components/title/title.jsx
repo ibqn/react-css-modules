@@ -6,7 +6,7 @@ export const Title = () => {
     return (
         <div>
             <h1 className={styles.title}>
-                Title
+                Nasa Facts
             </h1>
         </div>
     )

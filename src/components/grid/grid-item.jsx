@@ -3,7 +3,7 @@ import React from "react"
 import styles from "./grid-item.sass"
 
 
-export const GridItem = (props) => {
+export const GridItem = props => {
     return (
         <div className={styles.card}>
             <h2>{props.item.title}</h2>

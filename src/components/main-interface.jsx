@@ -32,8 +32,7 @@ export class MainInterface extends Component {
 
     updateClicked = id => this.setState(prevState => {
         const nasaFacts = prevState.nasaFacts
-        nasaFacts[id].clicked = true
-        //console.log(nasaFacts)
+        nasaFacts[id].clicked = !nasaFacts[id].clicked
         return { nasaFacts }
     })
 

@@ -11,7 +11,7 @@ export class Grid extends Component {
     render() {
         const factItems = this.props.facts.map(item => {
             return (
-                <GridItem key={item.id} item={item} />
+                <GridItem key={item.id} item={item} updateClicked={id => this.props.updateClicked(id)} />
             )
         })
         return (

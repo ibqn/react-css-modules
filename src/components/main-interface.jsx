@@ -30,6 +30,13 @@ export class MainInterface extends Component {
             .catch(error => console.error(error))
     }
 
+    updateClicked = id => this.setState(prevState => {
+        const nasaFacts = prevState.nasaFacts
+        nasaFacts[id].clicked = true
+        //console.log(nasaFacts)
+        return { nasaFacts }
+    })
+
     render() {
         return (
             <div className={styles.app}>
@@ -42,7 +49,7 @@ export class MainInterface extends Component {
                 </p>
                 <Title/>
                 <Background/>
-                <Grid facts={this.state.nasaFacts}/>
+                <Grid facts={this.state.nasaFacts} updateClicked={this.updateClicked}/>
             </div>
         )
     }

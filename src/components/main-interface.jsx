@@ -4,6 +4,8 @@ import _ from "lodash"
 import { Title } from "./title/title"
 import { Background } from "./background/background"
 import { Grid } from "./grid/grid"
+import { Rocket } from "./rocket/rocket"
+import { Smoke } from "./rocket/smoke"
 
 import logo from "./logo.svg"
 import styles from "./main-interface.sass"
@@ -48,7 +50,9 @@ export class MainInterface extends Component {
                 </p>
                 <Title/>
                 <Background/>
-                <Grid facts={this.state.nasaFacts} updateClicked={this.updateClicked}/>
+                <Grid facts={this.state.nasaFacts} updateClicked={this.updateClicked} />
+                <Rocket/>
+                <Smoke/>
             </div>
         )
     }

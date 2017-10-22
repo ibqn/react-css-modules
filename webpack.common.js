@@ -19,14 +19,17 @@ module.exports = {
             use: 'babel-loader',
             exclude: /node_modules/
           },
+          /*
           {
             test: /\.(bmp|gif|jpe?g|png)$/,
             loader: 'url-loader',
             options: {
               limit: 10000,
               name: '[name].[hash:base64:8].[ext]',
+              fallback: 'file-loader'
             },
           },
+          */
           {
             test: /\.(css|sass)$/,
             loader: ExtractTextPlugin.extract({
@@ -47,7 +50,7 @@ module.exports = {
             })
           },
           {
-            test: /\.(svg|png|jpg|gif)$/,
+            test: /\.(svg|png|jpg|gif|mov)$/,
             exclude: /\.(jsx?|html|json)$/,
             use: [
               {
